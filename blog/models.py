@@ -36,6 +36,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     category = models.ForeignKey(Category, related_name='posts', on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, related_name='posts')
+    excerpt = models.CharField(max_length=200, blank=True)
 
     class Meta:
         verbose_name = '文章'

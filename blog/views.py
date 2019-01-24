@@ -10,4 +10,6 @@ from .models import Post, Tag, Category
 class PostListView(ListView):
     model = Post
     context_object_name = 'posts'
-    template_name = 'blog/posts.html'
+    template_name = 'blog/home.html'
+    paginate_by = 5
+
