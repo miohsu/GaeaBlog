@@ -11,7 +11,7 @@
 </head>
 <body>
 
-{% block body %}
+
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">Gaea Blog</a>
@@ -31,24 +31,28 @@
         </div>
     </nav>
 
-    <header class="masthead" style="background-image: url('{% static 'img/home-bg.jpg' %}')">
+{% block header %}
+    <header class="masthead" style="background-image: {% block header-img %} url('{% static 'img/home-bg.jpg' %}') {% endblock %}">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
+                        {% block header-content %}
                         <h1>Gaea Blog</h1>
                         <span class="subheading">MioHsu's Blog</span>
+                        {% endblock %}
                     </div>
                 </div>
             </div>
         </div>
     </header>
+{% endblock %}
 
     <!-- Main Content -->
-    {% block content %} {% endblock %}
+{% block content %} {% endblock %}
 
- {% endblock %}
+
 
 {% block javascript %} {% endblock %}
 
